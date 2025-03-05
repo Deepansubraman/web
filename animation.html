@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+#container {
+  width: 400px;
+  height: 400px;
+  position: relative;
+  background: black;
+  overflow: hidden; /* Prevent text from going outside */
+}
+#animate {
+  position: absolute;
+  font-size: 24px;
+  font-weight: bold;
+  color: white;
+}
+</style>
+</head>
+<body>
+
+<p><button onclick="myMove()">Click Me</button></p> 
+
+<div id="container">
+  <div id="animate">deepan</div>
+</div>
+
+<script>
+function myMove() {
+  let id = null;
+  const elem = document.getElementById("animate");   
+  let pos = 0;
+  clearInterval(id);
+  id = setInterval(frame, 5);
+  
+  function frame() {
+    if (pos == 350) {
+      clearInterval(id);
+    } else {
+      pos++; 
+      elem.style.top = pos + "px"; 
+      elem.style.left = pos + "px"; 
+    }
+  }
+}
+</script>
+
+</body>
+</html>
